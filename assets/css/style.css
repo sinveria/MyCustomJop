@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap');
+:root {
+   --widthGrid: 100%;
+   --leftAndRightMargin: 20%;
+   --widthElementGrid: 25%;
+   --widthElementGridMargin: 20px;
+   --widthElementGridPadding: 10px;
+   --heightHeader: 80px;
+   
+   --fontSizeBody: 14px;
+   --fontSizeH1: 55px;
+   --fontSizeH2: 45px;
+   --fontSizeH3: 35px;
+   --fontSizeH4: 22px;
+   --fontSizeH5: 14px;
+   --fontLineHeigth: 30px;
+
+   --fontWeight100: 100;
+   --fontWeight300: 300;
+   --fontWeight500: 500;
+   --fontWeight700: 700;
+   --fontWeight900: 900;
+
+   --colorBody: #fcf2e5;
+   --colorButton: #cf976f;
+   --colorHeader: #a7795a;
+   --colorButtonHover: #be8a65;
+   --colorBorder: #ddd5ca;
+   --colorPrice: #e03a16;
+   --colorBlack: #231319;
+   --colorWhite: #fff;
+}
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Roboto';
+   font-size: var(--fontSizeBody);
+   color: var(--colorBlack);
+   background-color: var(--colorBody);
+}
+
+h1 {
+   font-size: var(--fontSizeH1);
+   padding: 30px 0;
+}
+
+p {
+   line-height: var(--fontLineHeigth);
+}
+
+a {
+   color: var(--colorBlack);
+}
+
+a:hover {
+   opacity: .7;
+   text-decoration: none;
+}
+
+/* Базовая настройка контейнеров */
+.container__foohead {
+   margin: 0 auto;
+   width: calc(var(--widthGrid) - var(--leftAndRightMargin));
+}
+.container {
+   margin: 0 auto;
+   width: calc(var(--widthGrid) - var(--leftAndRightMargin));
+   min-height: calc(100vh - 260px);
+}
+.center {
+   text-align: center;
+}
+/* Ошибки */
+.alert-danger {
+   width: calc(100% - 40px);
+   text-align: center;
+   padding: 15px 0;
+   border-radius: 20px;
+   background-color: #c98c80;
+}
+
+/* Шапка и подвал сайта */
+header {
+   margin-bottom: 50px;
+   width: var(--widthGrid);
+   background: var(--colorHeader);
+}
+
+.header, .footer {
+   color: var(--colorBody);
+   height: var(--heightHeader);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.header .white, .footer .white {
+   padding: 10px 30px;
+   margin-left: 25px;
+   background: var(--colorWhite);
+   color: var(--colorHeader);
+}
+
+.header .white:hover, .footer .white:hover {
+   opacity: 0.8;
+}
+
+/* Компонент "top_menu" */
+nav {
+   display: flex;
+   flex-direction: row;
+   list-style: none;
+   align-items: center;
+}
+
+nav li {
+   color: var(--colorWhite);
+   text-decoration: none;
+}
+
+nav li a {
+   padding: 0 50px 0 0;
+   color: var(--colorWhite);
+   text-decoration: none;
+}
+
+nav li a:hover {
+   opacity: .8;
+}
+
+nav li b a {
+   padding: 0;
+   color: var(--colorBlack);
+   text-decoration: underline;
+}
+
+nav li b a:hover {
+   opacity: .8;
+   background: none;
+   text-decoration: none;
+}
+
+/* Товары */
+.items {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.items .item {
+   flex-basis: calc(var(--widthElementGrid) - (var(--widthElementGridMargin) * 2));
+   padding: var(--widthElementGridPadding);
+   margin: var(--widthElementGridMargin) 0 var(--widthElementGridMargin) 0;
+   text-align: center;
+   overflow: hidden;
+   border: 1px solid var(--colorBorder);
+}
+
+.items .item h5 {
+   font-size: var(--fontSizeH5);
+   font-weight: var(--fontWeight100);
+}
+
+.items .item b {
+   font-size: var(--fontSizeH4);
+   line-height: 50px;
+   color: #e03a16;
+}
+
+.items .item .carts {
+   position: relative;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.items .item .cart {
+   cursor: pointer;
+   border: 0;
+   height: 40px;
+   width: 100%;
+   padding: 0 calc((var(--widthElementGridPadding) * 2)) 0 calc((var(--widthElementGridPadding) * 2));
+   text-align: right;
+   background: var(--colorButton);
+   color: var(--colorWhite);
+}
+
+.items .item .cart:hover {
+   background: var(--colorButtonHover);
+}
+
+.items .item .carts input[type="number"] {
+   position: absolute;
+   width: 50%;
+   border: 0;
+   border-radius: 20px;
+   text-align: center;
+   color: var(--colorBody);
+   height: 40px;
+   background: var(--colorButtonHover);
+}
+
+.items .item .images {
+   width: 100%;
+   height: 220px;
+   margin: 0 0 20px 0;
+   overflow: hidden;
+}
+
+.items .item img {
+   height: 100%;
+   width: auto;
+}
+
+/* Стили для страницы оформления и корзины */
+table {
+   border-collapse: collapse;
+   /* убираем пустые промежутки между ячейками */
+   border: 1px solid var(--colorBlack);
+   /* устаналиваем для таблицы внешнюю границу серого цвета толщиной 1px */
+}
+
+th {
+   background: var(--colorBlack);
+   color: #fff;
+   padding: 10px;
+   height: 50px;
+   text-align: left;
+}
+
+td {
+   border: 1px solid midnightblue;
+   padding: 10px;
+   height: 50px;
+   text-align: left;
+}
+
+/* Оформление заказа */
+.checout {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.checout .item-checout {
+   margin: 0 20px;
+   flex-basis: 50%;
+}
+
+.checout .item-checout h2 {
+   background-color: var(--colorBlack);
+   color: var(--colorBody);
+   padding: 10px 0 10px 30px;
+}
+
+.text_checout {
+   color: var(--colorPrice);
+}
+
+/* Окно авторизации login.php */
+
+.login {
+   width: 100%;
+   height: 100vh;
+   background: url('../images/bg_login.jpg') no-repeat;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+
+#loginform {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.login input[type="text"], .login input[type="password"] {
+   border: 0;
+   padding: 20px;
+   margin: 20px;
+   background: var(--colorBody);
+   outline: none;
+   width: calc(50% - 40px);
+   border-radius: 20px;
+}
+
+.input:-webkit-autofill, input:-webkit-autofill:focus {
+   transition: background-color 5000s ease-in-out 0s;
+}
+
+.login .bg_white {
+   color: var(--colorBody);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+   margin-right: 5%;
+   padding: calc(50px - 20px) 50px 50px 50px;
+   border: 1px solid var(--colorBody);
+}
+
+.input-group {
+   margin-bottom: 30px;
+}
+
+/* Оформление кнопок */
+
+.buttons {
+   margin: 20px 0 20px 0;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.btn {
+   border: 0;
+   padding: 20px 80px;
+   border-radius: 20px;
+   cursor: pointer;
+   text-transform: uppercase;
+}
+
+.checkout {
+   background: var(--colorButton);
+   color: #fff;
+}
+
+.checkout:hover {
+   background: var(--colorButtonHover);
+}
+
+.deleteSmall {
+   padding: 10px 15px;
+   background: var(--colorBlack);
+   color: #fff;
+   border-radius: 20px;
+   text-decoration: none;
+}
+
+.delete {
+   background: var(--colorBlack);
+   color: #fff;
+   text-decoration: none;
+}
+
+.back {
+   background: var(--colorBorder);
+   color: var(--colorBlack);
+}
